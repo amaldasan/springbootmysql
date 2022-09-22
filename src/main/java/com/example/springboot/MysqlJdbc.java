@@ -22,16 +22,16 @@ public class MysqlJdbc {
 	private static String firstname = "FIRSTNAME";
 	private static String lastname = "LASTNAME";
 	private static Properties properties = null;
-	@GetMapping("/Data")
+	@GetMapping("/Data")//request url name
 	public String getEmployeeDetails(int empID) throws SQLException  {
-		//connection
+		//connection with mysql
 		String 	DRIVER= "DRIVER";
 		String URL = "URL";
 		String UNAME = "UNAME";
 		String PASS = "PASS";
 	
 		
-		
+		//we can use stroe procedure or mysl query
 		String query = "select empid, firstname,lastname from employeee where empid ?";
 		String userData = "";
 		try {
@@ -68,7 +68,7 @@ public class MysqlJdbc {
 
 			
 
-
+			// closing the statement
 			st.close();
 			con.close();
 
@@ -82,7 +82,7 @@ public class MysqlJdbc {
 		}
 
 
-
+		
 		return userData;
 	}
 }
